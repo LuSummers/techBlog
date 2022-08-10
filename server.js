@@ -6,6 +6,7 @@ const sequelize = require('./config/connection');
 const userRoutes = require('./controllers/api/user-routes')
 const postRoutes = require('./controllers/api/post-routes')
 const commentRoutes = require('./controllers/api/comment-routes')
+const exphbs = require('express-handlebars');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -25,11 +26,12 @@ const sess = {
 };
 
 app.use(session(sess));
+const hbs = exphbs.create({});
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-const exphbs = require('express-handlebars');
-const hbs = exphbs.create({});
+app.use("/static", express.static('./static/'));
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
