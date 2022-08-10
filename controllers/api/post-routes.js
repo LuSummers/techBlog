@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, User } = require('../../models');
+const { Post, User, Comment } = require('../../models');
 
 
 
@@ -65,6 +65,4 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
       });
   });
-  Post.findAll({
-    attributes: ['id', 'post_url', 'title', 'created_at'],
-  })
+  module.exports = router;
