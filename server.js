@@ -41,8 +41,8 @@ const apiroutes ={
 // turn on routes
 // app.use(routes);
 app.use('/api/comment', apiroutes.commentRoutes);
-app.use('/api/comment', apiroutes.userRoutes);
-app.use('/api/comment', apiroutes.postRoutes);
+app.use('/api/users', apiroutes.userRoutes);
+app.use('/api/posts', apiroutes.postRoutes);
 app.use('/', homeroutes);
 
 
